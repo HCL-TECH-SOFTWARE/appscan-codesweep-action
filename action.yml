@@ -1,0 +1,5 @@
+name: 'HCL AppScan CodeSweep'
+description: 'Scan for security issues in code'
+runs:
+  using: 'node12'
+  main: 'src/runner.js'
