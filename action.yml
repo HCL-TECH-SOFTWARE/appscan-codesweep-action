@@ -1,0 +1,12 @@
+name: 'HCL AppScan CodeSweep'
+description: 'Scan for security issues in code'
+inputs:
+  asoc_key:
+    description: 'Optional. Used to filter issues marked as noise in ASoC.'
+    required: false
+  asoc_secret:
+    description: 'Optional. Used to filter issues marked as noise in ASoC.'
+    required: false
+runs:
+  using: 'node12'
+  main: 'src/runner.js'

@@ -1,0 +1,8 @@
+test/resources/TimeSeriesChunksTable.scala
+3d2
+5c44
+15a15
+20d19
+22c21
+24c23,26
+37a40,42
