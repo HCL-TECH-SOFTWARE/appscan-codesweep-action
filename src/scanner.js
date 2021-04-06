@@ -1,13 +1,7 @@
 /* © Copyright HCL Technologies Ltd. 2020 */
 
-const fs = require('fs');
-const got = require('got');
-const FormData = require('form-data');
-
-const URL = 'http://localhost';
-const PORT = ':8080';
-const API_SCAN_FILE = '/v1/scanFile';
-const FILE_PATH_PARAM = '?filePath=';
+const core = require('@actions/core');
+const service = require('./service');
 
 function scanFiles(fileMap) {
     return new Promise((resolve, reject) => {
@@ -30,14 +24,9 @@ function scanFiles(fileMap) {
 
 function scanFile(file, lines) {
     return new Promise((resolve, reject) => {
-        const form = new FormData();
-        form.append('scanFile', fs.createReadStream(file))
-        let url = URL + PORT + API_SCAN_FILE + FILE_PATH_PARAM + encodeURIComponent(file);
-        
-        got.post(url, { body: form })
+        service.scanFile(file)
         .then((response) => {
             let responseJson = JSON.parse(response.body);
-            
             if(!lines || lines.size === 0) {
                 getArticlesForFindings(responseJson.findings, responseJson.articles)
                 .then((findings) => {
@@ -62,11 +51,11 @@ function scanFile(file, lines) {
                 }
                 else {
                     let responseJson = JSON.parse(error.response.body);
-                    console.log(responseJson.error);
+                    core.error(`An error occurred scanning ${file}: ${responseJson.error}`);
                 }
             }
             else {
-                console.log(error);
+                core.error(`An error occurred scanning ${file}: ${error}`);
             }
             reject(error);
         });
@@ -95,8 +84,9 @@ function getArticlesForFindings(findings, articles) {
             let article = articles[finding.vulnName];
             finding["description"] = article.description;
             finding["mitigation"] = article.mitigation;
-            if(++count === findings.length)
+            if(++count === findings.length) {
                 resolve(findings);
+            }
         });
     });
 }

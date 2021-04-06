@@ -39,32 +39,21 @@ get_head_commit() {
     		--raw-output \
     		.pull_request.head.sha "$GITHUB_EVENT_PATH"
     )
+    export GITHUB_HEAD_SHA="$HEAD_COMMIT"
 }
 
 get_added_files() {
     echo "Checking for added files..."
     git diff --name-only --diff-filter=A "$BASE_COMMIT"..."$HEAD_COMMIT" >> $input_file
-    echo "Start added files"
-    cat $input_file
-    echo "End added files"
 }
 
 get_modified_files() {
 	echo "Checking for modified files..."
-    export GIT_EXTERNAL_DIFF=$diff_script 
-    git diff --diff-filter=M "$BASE_COMMIT"..."$HEAD_COMMIT" >> $input_file
-    echo "Start mod files"
-    cat $input_file
-    echo "End mod files"
-    cat $diff_script
-    echo "End cat command"
-    echo $GIT_EXTERNAL_DIFF
-    echo $diff_script
+    GIT_EXTERNAL_DIFF=$diff_script git diff --diff-filter=M "$BASE_COMMIT"..."$HEAD_COMMIT" >> $input_file
 }
 
 run_scan() {
-    cat $input_file
-	echo "Scanning for security issues..."
+	echo "Running Codesweep security scan on updated files..."
     node ./src/main.js
 }
 

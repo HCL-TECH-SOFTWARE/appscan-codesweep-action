@@ -77,13 +77,22 @@ function processInputFile(inputFile) {
                     lines = undefined;
                 }
             });
-        
-            once(rl, 'close').then(() => {
-                //Add the last one
-                if(file && shouldAddFile(lines))
-                    fileMap.set(file, lines);
-                resolve(fileMap);
+
+            rl.on('error', (error) => {
+                reject(error);
+                return;
             });
+
+            once(rl, 'close')
+                .then(() => {
+                    //Add the last one
+                    if(file && shouldAddFile(lines))
+                        fileMap.set(file, lines);
+                    resolve(fileMap);
+                })
+                .catch((error) => {
+                    reject(error);
+                })
         } catch (error) {
             reject(error);
         }
