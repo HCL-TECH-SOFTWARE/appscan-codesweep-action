@@ -23,4 +23,8 @@ jobs:
 ```
 
 # Examples
-Coming soon.
+Annotations are added to the diff view, showing any vulnerable lines of code:
+![annotation_screenshot](img/annotation.png)
+
+A checkrun is added to provide additional details, including good and bad code samples and mitigation information:
+![checkrun_screenshot](img/checkrun.png)
