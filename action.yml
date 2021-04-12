@@ -2,11 +2,11 @@ name: 'HCL AppScan CodeSweep'
 description: 'Scan for security issues in code'
 inputs:
   asoc_key:
-    description: 'Optional. Used to filter issues marked as noise in ASoC.'
-    required: false
+    description: 'API key for connecting to ASoC.'
+    required: true
   asoc_secret:
-    description: 'Optional. Used to filter issues marked as noise in ASoC.'
-    required: false
+    description: 'Secret for connecting to ASoC.'
+    required: true
 runs:
-  using: 'node12'
-  main: 'src/runner.js'
+  using: 'docker'
+  image: 'hclcr.io/appscan/codesweep:latest'
