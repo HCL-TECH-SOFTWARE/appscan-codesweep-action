@@ -9,4 +9,4 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'hclcr.io/appscan/codesweep:latest'
+  image: 'docker://hclcr.io/appscan/codesweep:latest'
