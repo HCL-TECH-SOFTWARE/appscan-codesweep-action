@@ -8,8 +8,22 @@ const core = require('@actions/core');
 const URL = 'http://localhost:';
 const PORT = process.env.SERVER_PORT ? process.env.SERVER_PORT : '8080';
 const API_SCAN_FILE = '/v1/scanFile';
-const API_LOGIN = '/v1/asoc/login'
+const API_LOGIN = '/v1/asoc/login';
+const API_HEALTH = '/actuator/health';
 const FILE_PATH_PARAM = '?filePath=';
+
+function checkServerStatus() {
+    return new Promise((resolve, reject) => {
+        let url = URL + PORT + API_HEALTH;
+        got(url, {retry: { limit: 10, methods: ['GET'] }, timeout: 15000 })
+        .then((response) => {
+            resolve();
+        })
+        .catch((error) => {
+            reject(error);
+        })
+    });
+}
 
 function scanFile(file) {
     return new Promise((resolve, reject) => {
@@ -57,4 +71,4 @@ function asocLogin() {
     })
 }
 
-module.exports = { scanFile, asocLogin }
+module.exports = { checkServerStatus, scanFile, asocLogin }
