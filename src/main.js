@@ -6,7 +6,10 @@ const diffparser = require('./diffparser');
 const scanner = require('./scanner');
 const service = require('./service');
 
-service.asocLogin()
+service.checkServerStatus()
+.then(() => {
+	return service.asocLogin();
+})
 .then(() => {
 	return diffparser.parse(process.env.DIFF_LOG);
 })
