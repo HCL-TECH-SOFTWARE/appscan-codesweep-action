@@ -16,7 +16,7 @@ const turndownService = new TurndownService();
 turndownService.addRule('code-block', {
     filter: 'code-block',
     replacement: function (content) {
-      return '```' + content + '```';
+      return '```\n' + content + '\n```';
     }
 });
 
