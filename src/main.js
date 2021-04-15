@@ -11,6 +11,7 @@ service.checkServerStatus()
 	return service.asocLogin();
 })
 .then(() => {
+	core.info('Running Codesweep security scan on updated files...');
 	return diffparser.parse(process.env.DIFF_LOG);
 })
 .then((fileMap) => {

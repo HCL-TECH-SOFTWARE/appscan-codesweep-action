@@ -53,7 +53,6 @@ get_modified_files() {
 }
 
 run_scan() {
-	echo "Running Codesweep security scan on updated files..."
     node ./src/main.js
 }
 

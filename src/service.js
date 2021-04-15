@@ -57,12 +57,11 @@ function asocLogin() {
                 }
                 else {
                     core.info(`Failed to connect to ASoC. Response code ${response.statusCode}`);
-                    resolve();
+                    reject();
                 }
             })
             .catch((error) => {
-                core.error(`An error occurred logging into ASoC: ${error}`);
-                resolve();
+                resolve(error);
             })
         }
         else {
