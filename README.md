@@ -5,7 +5,7 @@ Stop insecure code from ever reaching your repository with the HCL AppScan CodeS
 
 # Usage
 1. Register for a [free trial](https://www.hcltechsw.com/appscan/freetrial) of HCL AppScan on Cloud (ASoC). This is necessary to generate your API key/secret.
-2. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These can be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
+2. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
 3. Add the following file to your repository under .github/workflows/main.yml or add to an existing workflow file:
 ```yaml
 on: [pull_request]
@@ -22,6 +22,12 @@ jobs:
           asoc_secret: ${{secrets.ASOC_SECRET}}
     env: 
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+```
+# Optional Parameters
+- status - The status of the checks if any security issues are found. Must be one of 'action_required', 'failure', or 'neutral'. The default is neutral. For example:
+```yaml
+with:
+  status: failure
 ```
 
 # Examples
