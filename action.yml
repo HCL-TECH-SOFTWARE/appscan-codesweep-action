@@ -1,5 +1,8 @@
 name: 'HCL AppScan CodeSweep'
 description: 'Scan for security issues in code'
+branding:
+  color: 'blue'
+  icon: 'lock'  
 inputs:
   asoc_key:
     description: 'API key for connecting to ASoC.'
