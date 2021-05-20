@@ -1,9 +1,11 @@
 # HCL AppScan CodeSweep Github Action
-Stop insecure code from ever reaching your repository with the HCL AppScan CodeSweeep Github Action. When added to a new or existing Github Workflow, this action runs a security scan against all modified and added lines of code. Vulnerable lines of code are annotated with information to help the developer resolve the problem. Invoke the action on pull requests so both the developer and the reviewer are made aware of the problem before the code is ever merged to the repository.
+Your GitHub code is better and more secure with HCL AppScan CodeSweep for GitHub. For free.
+
+The HCL AppScan CodeSweep for GitHub extension enables you to check your code on every pull request. Run as a GitHub action, the extension identifies vulnerabilities in changed code with every update. But more than just identifying issues, the HCL AppScan CodeSweep for GitHub extension tells you what you need to know to mitigate issues — before they make it to the main branch.
 
 # Usage
-## Sign-Up
-Register for a [free trial](https://www.hcltechsw.com/appscan/freetrial) of HCL AppScan on Cloud (ASoC). This is necessary to generate your API key/secret.
+## Register
+Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/codesweep-for-github) to generate your API key/secret.
 
 ## Setup
 1. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
