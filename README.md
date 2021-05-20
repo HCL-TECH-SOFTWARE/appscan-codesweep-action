@@ -27,6 +27,12 @@ jobs:
     env: 
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
+**Note** If you use **checkout@v2** you must set fetch-depth to 0. For example:
+```yaml
+uses: actions/checkout@v2
+with:
+  fetch-depth: 0
+```
 # Optional Parameters
 - status - The status of the checks if any security issues are found. Must be one of 'action_required', 'failure', or 'neutral'. The default is neutral. For example:
 ```yaml
