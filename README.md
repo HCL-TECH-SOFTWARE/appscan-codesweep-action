@@ -48,9 +48,10 @@ Annotations are added to the diff view, showing any vulnerable lines of code and
 The HCL AppScan CodeSweep action supports scanning the following languages/dialects:
 | Languages|       |
 |    :---:    |    :---:    |
-| Android-Java |  Objective-C  |
+| Android-Java |  Objective-C/Objective-C++  |
 | Angular  |  PHP |
 | Apex  |  PL/SQL |
+| C  |  C++|
 | Cobol  |  Perl |
 | ColdFusion  |  Python |
 | Golang  |  React |
@@ -61,7 +62,7 @@ The HCL AppScan CodeSweep action supports scanning the following languages/diale
 | Kotlin  |  T-SQL |
 | MooTools  |  TypeScript |
 | NodeJS  |  VueJS |
-| Xamarin |   .Net (C#, ASP.Net) |
+| Xamarin |   .Net (C#, VB.NET, ASP.Net) |
 
 
 # Join the community 
