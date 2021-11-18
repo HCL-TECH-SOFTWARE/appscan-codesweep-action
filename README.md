@@ -54,16 +54,16 @@ The HCL AppScan CodeSweep action supports scanning the following languages/diale
 | C  |  C++|
 | Cobol  |  Perl |
 | ColdFusion  |  Python |
-| Golang  |  React |
-| Groovy  |  React Native |
-| Ionic  |  Ruby |
-| JQuery  |  Scala |
-| JavaScript  |  Swift |
-| Kotlin  |  T-SQL |
-| MooTools  |  TypeScript |
-| NodeJS  |  VueJS |
-| Xamarin |   .Net (C#, VB.NET, ASP.Net) |
-
+| Dart  |  React |
+| Golang  |  React Native |
+| Groovy  |  Ruby |
+| Ionic  |  Scala |
+| Java  |  Swift |
+| JavaScript  |  T-SQL |
+| JQuery  |  TypeScript |
+| Kotlin  |  VueJS |
+| MooTools  |   .Net (C#, VB.NET, ASP.Net) |
+| NodeJS  |  Xamarin |
 
 # Join the community 
 Use the [CodeSweep](https://join.slack.com/t/codesweep/shared_invite/zt-dc1o7zkn-pdMjJCFDTuRJP7mOUqEnKw) slack channel to report any feedback or ask general questions about the HCL AppScan CodeSweep action. 
