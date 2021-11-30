@@ -12,6 +12,7 @@ Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/code
    ![adingkeys_animation](img/keyAndSecret.gif)
 2. Add the following file to your repository under .github/workflows/main.yml or add to an existing workflow file:
 ```yaml
+name: "HCL AppScan CodeSweep"
 on: [pull_request]
 jobs:
   scan:
