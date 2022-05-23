@@ -14,6 +14,27 @@ inputs:
     description: 'The status of the checks if any security issues are found. One of action_required, failure, or neutral.'
     required: false
     default: 'neutral'
+  publish_on_merge:
+    description: 'Publish issues to ASoC when the pull request is merged.'
+    required: false
+    type: boolean
+    default: false
+  application_id:
+    description: 'The ASoC application id where issues will be published. Required when publish_on_merge is true.'
+    required: false
+  issue_status:
+    description: 'The status of issues that are pushed to ASoC. One of New, Open, In Progress, Noise, Fixed, or Passed.'
+    required: false
+    default: 'Open'
+  scan_base_name:
+    description: 'When issues are published on merge, the base name of the scan used to submit those issues. A timestamp is appended to the given base name.'
+    required: false
+    default: 'GitHub_CodeSweep'
+  personal_scan:
+    description: 'When issues are published on merge, the scan representing those issues can be made a personal scan.'
+    required: false
+    type: boolean
+    default: false
 runs:
   using: 'docker'
   image: 'docker://hclcr.io/appscan/codesweep-action:latest'
