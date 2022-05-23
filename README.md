@@ -28,23 +28,14 @@ jobs:
     env: 
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
-3. To publish security issues to ASoC when a pull request is merged, add the following file to your repository under .github/workflows/main.yml or add to an existing workflow file:
+**Note** If you use **checkout@v2** you must set fetch-depth to 0. For example:
 ```yaml
-name: "HCL AppScan CodeSweep"
-on: [pull_request]
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Run AppScan CodeSweep
-        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2
-        with:
-          asoc_key: ${{secrets.ASOC_KEY}}
-          asoc_secret: ${{secrets.ASOC_SECRET}}
-    env: 
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+uses: actions/checkout@v2
+with:
+  fetch-depth: 0
+```
+3. To publish security issues to ASoC when a pull request is merged, add the following content to your workflow file:
+```yaml
 on:
   pull_request:
     types: [closed]
@@ -61,12 +52,6 @@ jobs:
           application_id: <your ASoC application ID>
     env: 
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-```
-**Note** If you use **checkout@v2** you must set fetch-depth to 0. For example:
-```yaml
-uses: actions/checkout@v2
-with:
-  fetch-depth: 0
 ```
 # Optional Parameters For Scanning
 - status - The status of the checks if any security issues are found. Must be one of 'action_required', 'failure', or 'neutral'. The default is neutral. For example:
