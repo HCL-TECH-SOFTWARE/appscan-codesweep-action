@@ -10,7 +10,7 @@ Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/code
 ## Setup
 1. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
    ![adingkeys_animation](img/keyAndSecret.gif)
-2. To scan code changes when a pull request is opened, add the following file to your repository under .github/workflows/main.yml or add to an existing workflow file:
+2. To scan code changes when a pull request is opened, add the following file to your repository under .github/workflows/codesweep.yml or add to an existing workflow file:
 ```yaml
 name: "HCL AppScan CodeSweep"
 on: [pull_request]
@@ -89,7 +89,7 @@ The HCL AppScan CodeSweep action supports scanning the following languages/diale
 | Dart  |  React |
 | Golang  |  React Native |
 | Groovy  |  Ruby |
-| Infrastructure as Code (Docker, Kubernetes, Terraform)  |  Scala |
+| IaC (Docker, K8s, Terraform)  |  Scala |
 | Ionic  |  Swift |
 | Java  |  T-SQL |
 | JavaScript  |  TypeScript |
