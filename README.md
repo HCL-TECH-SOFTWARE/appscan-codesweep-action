@@ -60,9 +60,9 @@ with:
   status: failure
 ```
 # Optional Parameters For Publishing Issues to AppScan on Cloud
-- issue_status - The status of issues that are published to ASoC. Must be one of 'new', 'open', 'inprogress', 'noise', 'fixed', or 'passed'. The default is 'open'.
+- issue_status - The status of issues that are published to ASoC. Must be one of 'open', 'inprogress', 'noise', 'fixed', or 'passed'. The default is 'open'.
 - scan_base_name - The base name of the scan for issues published to ASoC. A timestamp is appended to the given base name. The default is 'GitHub_CodeSweep'.
-- personal_scan - When issues are published to ASoC, the scan representing those issues can be made a personal scan. The default is false.
+- personal_scan - When issues are published to ASoC, the scan representing those issues can be made a personal scan. The default is false. See [this page](https://help.hcltechsw.com/appscan/ASoC/appseccloud_scans_personal.html) for additional details.
 ```yaml
 with:
   publish_on_merge: true
