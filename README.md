@@ -10,7 +10,7 @@ Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/code
 ## Setup
 1. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
    ![adingkeys_animation](img/keyAndSecret.gif)
-2. To scan code changes when a pull request is opened, add the following file to your repository under .github/workflows/codesweep.yml or add to an existing workflow file:
+2. To scan code changes when a pull request is opened, add the following file to your repository under .github/workflows/codesweep.yml or update an existing workflow file:
 ```yaml
 name: "HCL AppScan CodeSweep"
 on: [pull_request]
@@ -34,7 +34,7 @@ uses: actions/checkout@v2
 with:
   fetch-depth: 0
 ```
-3. To publish security issues to ASoC when a pull request is merged, add the following content to your workflow file:
+3. To publish security issues to ASoC when a pull request is merged, add the following file to your repository under .github/workflows/codesweep_publish.yml or update an existing workflow file:
 ```yaml
 on:
   pull_request:
