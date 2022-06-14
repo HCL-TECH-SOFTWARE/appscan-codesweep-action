@@ -10,10 +10,13 @@ Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/code
 ## Setup
 1. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
    ![adingkeys_animation](img/keyAndSecret.gif)
-2. To scan code changes when a pull request is opened, add the following file to your repository under .github/workflows/codesweep.yml or update an existing workflow file:
+2. Ensure that the "Workflow permissions" for your repository are set to "Read and write permissions". This allows Codesweep to scan your files and create checkruns and annotations for the issues it finds. You can access these settings by going to Settings -> Actions -> General.
+3. To scan code changes when a pull request is opened, add the following file to your repository under .github/workflows/codesweep.yml or update an existing workflow file:
 ```yaml
 name: "HCL AppScan CodeSweep"
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened,synchronize]
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -28,14 +31,15 @@ jobs:
     env: 
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
-**Note** If you use **checkout@v2** you must set fetch-depth to 0. For example:
+**Note** If you use **checkout@v2** or later you must set fetch-depth to 0. For example:
 ```yaml
 uses: actions/checkout@v2
 with:
   fetch-depth: 0
 ```
-3. To publish security issues to ASoC when a pull request is merged, add the following file to your repository under .github/workflows/codesweep_publish.yml or update an existing workflow file:
+4. To publish security issues to ASoC when a pull request is merged, add the following file to your repository under .github/workflows/codesweep_publish.yml or update an existing workflow file:
 ```yaml
+name: "HCL AppScan CodeSweep"
 on:
   pull_request:
     types: [closed]
