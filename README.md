@@ -103,3 +103,8 @@ The HCL AppScan CodeSweep action supports scanning the following languages/diale
 
 # Join the community 
 Use the [CodeSweep](https://join.slack.com/t/codesweep/shared_invite/zt-dc1o7zkn-pdMjJCFDTuRJP7mOUqEnKw) slack channel to report any feedback or ask general questions about the HCL AppScan CodeSweep action. 
+
+# Troubleshooting
+- **Problem:** The security scan runs, but no checkruns or annotations are created for the security issues that are found. The workflow log contains the error: ***Error: Failed creating checkrun: HttpError: Resource not accessible by integration***
+
+   This error indicates that the workflow does not have write permission to the repository, so CodeSweep is unable to create the checkruns and annotations. To fix this, go to Settings -> Actions -> General and set ***Workflow permissions*** to ***Read and write permissions***.
