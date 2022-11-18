@@ -102,7 +102,7 @@ The HCL AppScan CodeSweep action supports scanning the following languages/diale
 | MooTools  |  Xamarin |
 
 # Join the community 
-Use the [CodeSweep](https://join.slack.com/t/codesweep/shared_invite/zt-dc1o7zkn-pdMjJCFDTuRJP7mOUqEnKw) slack channel to report any feedback or ask general questions about the HCL AppScan CodeSweep action. 
+Use the [CodeSweep](https://join.slack.com/t/codesweep/shared_invite/zt-1jzt7576u-EtGiE0NHt4dZwwz8sjlqQQ) slack channel to report any feedback or ask general questions about the HCL AppScan CodeSweep action. 
 
 # Troubleshooting
 - **Problem:** The security scan runs, but no checkruns or annotations are created for the security issues that are found. The workflow log contains the error: ***Error: Failed creating checkrun: HttpError: Resource not accessible by integration***
