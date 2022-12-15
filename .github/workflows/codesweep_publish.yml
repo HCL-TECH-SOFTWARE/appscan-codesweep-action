@@ -1,4 +1,4 @@
-name: "HCL AppScan CodeSweep - Publish"
+name: "HCL AppScan CodeSweep with Publish"
 on:
   pull_request:
     types: [closed]
