@@ -1,7 +1,7 @@
 # HCL AppScan CodeSweep Github Action
 Your GitHub code is better and more secure with HCL AppScan CodeSweep for GitHub. For free.
 
-The HCL AppScan CodeSweep GitHub Action enables you to check your code on every pull request. Run as a GitHub action, the extension identifies vulnerabilities in changed code with every update. But more than just identifying issues, the HCL AppScan CodeSweep for GitHub extension tells you what you need to know to mitigate issues — before they make it to the main branch.
+The HCL AppScan CodeSweep GitHub Action enables you to check your code on every pull request. The action identifies vulnerabilities in changed code with every update. But more than just identifying issues, the HCL AppScan CodeSweep GitHub Action tells you what you need to know to mitigate issues — before they make it to the main branch.
 
 # Usage
 ## Register
