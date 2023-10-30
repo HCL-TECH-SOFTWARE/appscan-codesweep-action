@@ -63,6 +63,8 @@ jobs:
 with:
   status: failure
 ```
+- service_url - The url of the AppScan service when connecting to AppScan 360.
+- acceptssl - Allow connections to an AppScan service with an untrusted certificate. Recommended for testing purposes only.
 # Optional Parameters For Publishing Issues to AppScan on Cloud
 - issue_status - The status of issues that are published to ASoC. Must be one of 'open', 'inprogress', 'noise', 'fixed', or 'passed'. The default is 'open'.
 - scan_base_name - The base name of the scan for issues published to ASoC. A timestamp is appended to the given base name. The default is 'GitHub_CodeSweep'.
