@@ -5,13 +5,13 @@ branding:
   icon: 'lock'  
 inputs:
   asoc_key:
-    description: 'API key for connecting to ASoC.'
-    required: true
+    description: 'API key for connecting to the AppScan service. Required when publish_on_merge is true.'
+    required: false
   asoc_secret:
-    description: 'Secret for connecting to ASoC.'
-    required: true
+    description: 'Secret for connecting to the AppScan service. Required when publish_on_merge is true.'
+    required: false
   service_url:
-    description: 'The url of the AppScan service.'
+    description: 'The url of the AppScan service. Defaults to https://cloud.appscan.com.'
     required: false
   acceptssl:
     description: 'Allow connections to a service with an untrusted certificate. Recommended for testing purposes only.'
