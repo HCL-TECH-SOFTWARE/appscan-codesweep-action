@@ -10,6 +10,14 @@ inputs:
   asoc_secret:
     description: 'Secret for connecting to ASoC.'
     required: true
+  service_url:
+    description: 'The url of the AppScan service.'
+    required: false
+  acceptssl:
+    description: 'Allow connections to a service with an untrusted certificate. Recommended for testing purposes only.'
+    required: false
+    type: boolean
+    default: false
   status:
     description: 'The status of the checks if any security issues are found. One of action_required, failure, or neutral.'
     required: false
