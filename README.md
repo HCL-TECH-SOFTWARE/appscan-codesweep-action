@@ -29,10 +29,10 @@ with:
   fetch-depth: 0
 ```
 # Optional
-You can publish security issues to ASoC when a pull request is merged. To do so:
+You can publish security issues to ASoC or AppScan 360 when a pull request is merged. To do so:
 
-1. Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/codesweep-for-github) to generate your API key/secret.
-2. After logging into ASoC, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
+1. (ASoC only) Register on [HCL AppScan on Cloud (ASoC)](https://www.hcltechsw.com/appscan/codesweep-for-github) to generate your API key/secret.
+2. After logging into ASoC or AppScan 360, go to [the API page](https://cloud.appscan.com/main/settings) to generate your API key/secret pair. These must be used in the asoc_key and asoc_secret parameters for the action. It's recommended to store them as secrets in your repository.
    ![adingkeys_animation](img/keyAndSecret.gif)
 3. Add the following file to your repository under .github/workflows/codesweep_publish.yml or update an existing workflow file:
 ```yaml
@@ -62,7 +62,8 @@ with:
 ```
 - service_url - The url of the AppScan service when connecting to AppScan 360.
 - acceptssl - Allow connections to an AppScan service with an untrusted certificate. Recommended for testing purposes only.
-# Optional Parameters For Publishing Issues to AppScan on Cloud
+# Optional Parameters For Publishing Issues to ASoC or AppScan 360
+- service_url - The url of your AppScan 360 instance. This is required for connections to AppScan 360. Defaults to ASoC (https://cloud.appscan.com).
 - issue_status - The status of issues that are published to ASoC. Must be one of 'open', 'inprogress', 'noise', 'fixed', or 'passed'. The default is 'open'.
 - scan_base_name - The base name of the scan for issues published to ASoC. A timestamp is appended to the given base name. The default is 'GitHub_CodeSweep'.
 - personal_scan - When issues are published to ASoC, the scan representing those issues can be made a [personal scan](https://help.hcltechsw.com/appscan/ASoC/appseccloud_scans_personal.html). The default is false.
