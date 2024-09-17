@@ -16,9 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Run AppScan CodeSweep
-        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2
+        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2.1
     env: 
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
@@ -45,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish issues to ASoC
-        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2
+        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2.1
         with:
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
